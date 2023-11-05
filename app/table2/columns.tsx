@@ -74,6 +74,11 @@ export const column: ColumnDef<DataType>[] = [
   {
     header: "UpdatedAt",
     accessorKey: "updatedAt",
+    cell: ({ row }) => {
+      let date = row.getValue("updatedAt");
+      let formatted = new Date(date as string).toLocaleString();
+      return <div className="font-medium">{formatted}</div>;
+    },
   },
   {
     header: "Actions",
