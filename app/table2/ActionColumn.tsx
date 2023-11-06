@@ -26,8 +26,7 @@ const ActionColumn: React.FC<ActionColumnProps> = ({ row }) => {
       <DropdownMenuContent align="end">
         <DropdownMenuLabel>Actions</DropdownMenuLabel>
         <DropdownMenuItem
-          onClick={() => navigator.clipboard.writeText(row.Meter_Serial_No)}
-        >
+          onClick={() => navigator.clipboard.writeText(row.Meter_Serial_No)}>
           Copy payment ID
         </DropdownMenuItem>
         <DropdownMenuSeparator />

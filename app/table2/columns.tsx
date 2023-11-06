@@ -2,6 +2,7 @@
 import { Person } from "@/demo/makeData";
 import { ColumnDef } from "@tanstack/react-table";
 import ActionColumn from "./ActionColumn";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export interface DataType {
   ActivityLog: string;
@@ -54,6 +55,29 @@ export interface DataType {
 //   },
 // ];
 export const column: ColumnDef<DataType>[] = [
+  {
+    id: "select",
+    header: ({ table }) => (
+      <Checkbox
+        className="mx-2 self-center"
+        onCheckedChange={(value) => {
+          table.toggleAllRowsSelected(!!value);
+        }}
+        checked={table.getIsAllRowsSelected()}
+      />
+    ),
+    cell: ({ row }) => (
+      <Checkbox
+        className="mx-2"
+        onCheckedChange={(value) => {
+          row.toggleSelected(!!value);
+        }}
+        checked={row.getIsSelected()}
+      />
+    ),
+    enableHiding: false,
+    enableSorting: false,
+  },
   {
     header: "ID",
     accessorKey: "Meter_Serial_No",

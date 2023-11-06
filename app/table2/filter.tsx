@@ -14,13 +14,12 @@ function Filter({
     .flatRows[0]?.getValue(column.id);
 
   const columnFilterValue = column.getFilterValue();
-  const dependency = column.getFacetedUniqueValues();
   const sortedUniqueValues = React.useMemo(
     () =>
       typeof firstValue === "number"
         ? []
         : Array.from(column.getFacetedUniqueValues().keys()).sort(),
-    [dependency]
+    [column.getFacetedUniqueValues()]
   );
 
   return typeof firstValue === "number" ? (
@@ -39,7 +38,7 @@ function Filter({
               ? `(${column.getFacetedMinMaxValues()?.[0]})`
               : ""
           }`}
-          className="w-24 border shadow rounded"
+          className="w-[calc(100%-20px)] border shadow rounded"
         />
         <DebouncedInput
           type="number"
@@ -54,7 +53,7 @@ function Filter({
               ? `(${column.getFacetedMinMaxValues()?.[1]})`
               : ""
           }`}
-          className="w-24 border shadow rounded"
+          className="w-[calc(100%-20px)] border shadow rounded"
         />
       </div>
       <div className="h-1" />
@@ -71,7 +70,7 @@ function Filter({
         value={(columnFilterValue ?? "") as string}
         onChange={(value) => column.setFilterValue(value)}
         placeholder={`Search... (${column.getFacetedUniqueValues().size})`}
-        className="w-36 border shadow rounded"
+        className="w-[calc(100%-20px)] border shadow rounded"
         list={column.id + "list"}
       />
       <div className="h-1" />

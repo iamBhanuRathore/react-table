@@ -1,3 +1,4 @@
+import { Input } from "@/components/ui/input";
 import React from "react";
 function DebouncedInput({
   value: initialValue,
@@ -24,7 +25,7 @@ function DebouncedInput({
   }, [value]);
 
   return (
-    <input
+    <Input
       {...props}
       value={value}
       onChange={(e) => setValue(e.target.value)}
