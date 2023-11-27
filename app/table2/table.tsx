@@ -58,7 +58,7 @@ export function DataTable<TData, TValue>({
         <div className="flex p-2">
           <p></p>
           <div className="ml-auto">
-            <Button onClick={() => downloadToExcel(data)}>
+            <Button className="mr-4" onClick={() => downloadToExcel(data)}>
               Export to Excel
             </Button>
             <SelectVisibleCloumns table={table} />
@@ -82,7 +82,7 @@ export function DataTable<TData, TValue>({
                             //     : "",
                             //   onClick: header.column.getToggleSortingHandler(),
                             // }}
-                            className="flex items-center font-bold justify-center text-center"
+                            className="flex cursor-pointer items-center font-bold justify-center text-center"
                             onClick={header.column.getToggleSortingHandler()}>
                             {flexRender(
                               header.column.columnDef.header,

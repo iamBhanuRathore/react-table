@@ -12,7 +12,7 @@ export const downloadToExcel = (data: any) => {
         },
         {
           label: "Category",
-          value: "category",
+          value: "Category",
         },
         {
           label: "Created by",
